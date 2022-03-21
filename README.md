@@ -23,13 +23,14 @@ Connect to the edge HDFS of Adaltas Cloud by SSH
 Export scientific articles metadata to HDFS
 ===========================================
 
-Prepare the environment to connect to the applications that will follow
+Prepare the environment to use the applications that will follow
 -----------------------------------------------------------------------
 
-Install hdds python requirements:
+Install python requirements:
 
     pip install --upgrade pip
     pip install requests_kerberos kerberos hdfs avro pandas
+    pip install -r requirements.txt
     
 Get a Kerberos ticket to connect to the applications that will follow (password : AdaltasWill2000):
 
