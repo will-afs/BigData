@@ -13,36 +13,28 @@ Setup the VPN to connect to Adaltas infrastructure
 - Select the .ovpn file previously downloaded
 - check the connexion to Adaltas infrastructure : ping edge-1.au.adaltas.cloud
 
-Connect to the edge HDFS of Adaltas Cloud by SSH
-================================================
-- Activate the VPN
-- Connect by SSH, with password 'AdaltasWill2000':
-
-    ssh w.afonso-cs@edge-1.au.adaltas.cloud
-
 Export scientific articles metadata to HDFS
 ===========================================
 
 Prepare the environment to use the applications that will follow
------------------------------------------------------------------------
+----------------------------------------------------------------
+(On Ubuntu) Install the required libraries:
+
+    sudo apt-get install gcc python-dev libkrb5-dev
+
+Create and activate a virtual environment:
+
+    python3 -m venv .venv
+    source .venv/bin/activate
 
 Install python requirements:
 
     pip install --upgrade pip
-    pip install requests_kerberos kerberos hdfs avro pandas
     pip install -r requirements.txt
-    
-Get a Kerberos ticket to connect to the applications that will follow (password : AdaltasWill2000):
-
-    kinit w.afonso-cs
-   
-The ticket can be checked with the following command:
-   
-    klist
     
 Generate a CSV as an aggregation of articles metadata
 -----------------------------------------------------
-Clone the current project onto the machine:
+Clone the current project onto your machine:
 
     git clone https://github.com/will-afs/BigData.git
     
@@ -53,5 +45,31 @@ Go into the BigData folder:
 Generate the .csv database of PDF metadata :
 
     python3 generate_csv.py
-
     
+Push the CSV to HDFS
+--------------------
+Activate the VPN
+
+Get a Kerberos ticket to connect to the applications that will follow (password : AdaltasWill2000):
+
+    kinit w.afonso-cs
+   
+The ticket can be checked with the following command:
+   
+    klist
+
+Push the CSV to HDFS
+
+    python3 push_csv_to_hdfs.py
+
+Process data with HQL
+=====================
+Connect to Zeppelin through a webbroser (login: w.afonso-cs, password: AdaltasWill2000
+
+    http://zep-1.au.adaltas.cloud:9995/#/
+
+Connect to the edge HDFS of Adaltas Cloud by SSH
+================================================   
+Run the following command with password 'AdaltasWill2000':
+
+    ssh w.afonso-cs@edge-1.au.adaltas.cloud
