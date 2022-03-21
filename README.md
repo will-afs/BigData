@@ -64,7 +64,9 @@ Push the CSV to HDFS
 
 Process data with HQL
 =====================
+Connect to Zeppelin through a webbroser (login: w.afonso-cs, password: AdaltasWill2000
 
+    http://zep-1.au.adaltas.cloud:9995/#/
 
 Connect to the edge HDFS of Adaltas Cloud by SSH
 ================================================   
