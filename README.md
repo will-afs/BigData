@@ -62,14 +62,36 @@ Push the CSV to HDFS
 
     python3 push_csv_to_hdfs.py
 
-Process data with HQL
-=====================
-Connect to Zeppelin through a webbroser (login: w.afonso-cs, password: AdaltasWill2000
-
-    http://zep-1.au.adaltas.cloud:9995/#/
-
-Connect to the edge HDFS of Adaltas Cloud by SSH
-================================================   
-Run the following command with password 'AdaltasWill2000':
+Connect to the edge HDFS of Adaltas Cloud by SSH and check the .CSV has been stored into the HDFS
+-------------------------------------------------------------------------------------------------
+Connect to Adaltas server with password 'AdaltasWill2000':
 
     ssh w.afonso-cs@edge-1.au.adaltas.cloud
+
+Check HDFS content:
+
+    hdfs dfs -ls /education/cs_2022_spring_1/w.afonso-cs/fil-rouge/
+    
+The result should be as follows:
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/HDFS%20content.JPG">
+
+Process data with HQL
+=====================
+Connect to Zeppelin through a web browser (login: w.afonso-cs, password: AdaltasWill2000):
+
+    http://zep-1.au.adaltas.cloud:9995/#/
+    
+Run the following Zeppelin Notebook:
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/Zeppelin%20HQL%20script%20location.JPG">
+
+Creation of a Hive table from the CSV file previously stored in HDFS:
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/Create%20table.JPG">
+
+Check the table is duely created:
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/Check%20table%20is%20created.JPG">
+
+Plot extracted PDfs in function of time:
