@@ -81,17 +81,23 @@ Process data with HQL
 Connect to Zeppelin through a web browser (login: w.afonso-cs, password: AdaltasWill2000):
 
     http://zep-1.au.adaltas.cloud:9995/#/
-    
-Run the following Zeppelin Notebook:
+
+Open the following Notebook:
 
 <img src="https://github.com/will-afs/BigData/blob/main/img/Zeppelin%20HQL%20script%20location.JPG">
 
-Creation of a Hive table from the CSV file previously stored in HDFS:
+Run the Zeppelin Notebook:
 
-<img src="https://github.com/will-afs/BigData/blob/main/img/Create%20table.JPG">
+<img src="https://github.com/will-afs/BigData/blob/main/img/Homepage.JPG">
 
-Check the table is duely created:
+It will create a Hive table from the CSV file previously stored in HDFS:
 
 <img src="https://github.com/will-afs/BigData/blob/main/img/Check%20table%20is%20created.JPG">
 
-Plot extracted PDfs in function of time:
+And expose some data visualization too. First, the title length distribution :
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/Title%20length%20distribution.JPG">
+
+And then, the number of published PDFs by date (cumulated) :
+
+<img src="https://github.com/will-afs/BigData/blob/main/img/Number%20of%20cumulated%20published%20PDFs%20by%20date.JPG">
